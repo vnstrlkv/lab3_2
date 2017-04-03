@@ -33,10 +33,20 @@ void showmenu()
 {
 	system("cls");
 	printf("1: input\n");
-	printf("2: show\n");
-	printf("3: showpack\n");
+	printf("2: showINT\n");
+	printf("3: showCHAR\n");
+	printf("4: showpack\n");
 }
-void show(char *arr, int num)
+void showINT(char *arr, int num)
+{
+	printf("\nunpack array\n");
+	for (int i = 0; i < num; i++)
+	{
+		printf("%d|", arr[i]);
+	}
+	system("pause");
+}
+void showCHAR(char *arr, int num)
 {
 	printf("\nunpack array\n");
 	for (int i = 0; i < num; i++)
@@ -77,7 +87,7 @@ void input(char *arr, int *num)
 {
 	printf("1: add char\n");
 	printf("2: add int\n");
-	char buf[10], key = 0;
+	char buf[15], key = 0;
 	key = getch();
 	switch (key)
 	{
@@ -137,10 +147,15 @@ void menu(char *arr, int *num)
 	}
 	case '2':
 	{
-		show(arr, *num);
+		showINT(arr, *num);
 		break;
 	}
 	case '3':
+	{
+		showCHAR(arr, *num);
+		break;
+	}
+	case '4':
 	{
 		showpack(arr);
 		break;
@@ -156,7 +171,7 @@ void menu(char *arr, int *num)
 
 void main()
 {
-	char arr[100] = { NULL,NULL };
+	char arr[200] = { NULL,NULL };
 	int num = 2;
 	menu(arr, &num);
 }
